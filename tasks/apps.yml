@@ -17,9 +17,12 @@
   delay: 10
   changed_when: false
   tags:
-    - marathon
+    - marathon_apps
 
-
+- name: debug result
+  debug: msg="result= {{result}}"
+  tags: marathon_apps
+  
 - name: start marathon-consul app
   run_once: true
   uri: 
@@ -37,6 +40,6 @@
   delay: 10
   changed_when: false
   tags:
-    - marathon
+    - marathon_apps
 
 
