@@ -1,3 +1,6 @@
+- name: ensure httlib2 is present
+  apt: name="python-httplib2" state=present
+
 - wait_for: port="{{marathon_https_port}}" host=marathon.service.consul delay=6 timeout=60 
 
 - name: start mesos-consul app
@@ -19,10 +22,7 @@
   tags:
     - marathon_apps
 
-- name: debug result
-  debug: msg="result= {{result}}"
-  tags: marathon_apps
-  
+
 - name: start marathon-consul app
   run_once: true
   uri: 
